@@ -1,0 +1,85 @@
+def kases_sistema():
+
+print("Sveicināti veikalā! Ievadiet preces nosaukumu, cenu, mērvienību un daudzumu.")
+
+print("Lai beigtu programmu, ievadiet '0' kā preces nosaukumu.")
+
+
+kopsumma = 0.0 # Kopsummas sākotnējā vērtība
+
+
+
+while True:
+
+# Ievada preces nosaukumu
+
+preces_nosaukums = input("Ievadiet preces nosaukumu: ")
+
+if preces_nosaukums == "0": # Ja nosaukums ir '0', programma beidzas
+
+break
+
+
+try:
+
+# Ievada cenu
+
+cena = float(input("Ievadiet cenu (EUR): "))
+
+if cena < 0:
+
+print("Cena nevar būt negatīva. Lūdzu, ievadiet vēlreiz.")
+
+continue
+
+
+
+# Ievada mērvienību
+
+mervieniba = input("Ievadiet mērvienību (piem., kg, gab., litri): ")
+
+
+
+# Ievada daudzumu
+
+daudzums = float(input(f"Ievadiet daudzumu ({mervieniba}): "))
+
+if daudzums < 0:
+
+print("Daudzums nevar būt negatīvs. Lūdzu, ievadiet vēlreiz.")
+
+continue
+
+
+# Aprēķina kopējo summu par preci
+
+preces_kopsumma = cena * daudzums
+
+print(f"Preces '{preces_nosaukums}' kopējā summa: {preces_kopsumma:.2f} €")
+
+
+# Uzkrāj kopējo summu
+
+kopsumma += preces_kopsumma
+
+
+
+except ValueError:
+
+print("Nekorekta ievade. Lūdzu, ievadiet skaitlisku vērtību.")
+
+continue
+
+
+
+# Izvada galīgo kopsummu
+
+print(f"Kopsumma par visām precēm: {kopsumma:.2f} €")
+
+
+
+# Palaiž programmu
+
+if __name__ == "__main__":
+
+kases_sistema()
